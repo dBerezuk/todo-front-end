@@ -1,0 +1,27 @@
+@mixin fluid-text($min: 16, $max: 48) {
+  font-size: clamp(#{$min}px, #{calc($max / 1440) * 100}vw, #{$max}px);
+}
+
+@mixin flex-center($isInline: false) {
+  @if $isInline {
+    display: inline-flex;
+  } @else {
+    display: flex;
+  }
+
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin abs-center($all: false) {
+  @apply absolute top-1/2 left-1/2 -translate-y-1/2;
+
+  @if($all) {
+    @apply -translate-x-1/2;
+  }
+}
+
+@mixin square($size) {
+  width: $size;
+  aspect-ratio: 1;
+}

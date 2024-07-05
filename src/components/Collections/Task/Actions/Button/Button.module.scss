@@ -1,0 +1,19 @@
+@import '../../../../../assets/styles/styles';
+
+.button {
+  @include square(44px);
+  @include flex-center();
+
+  @apply relative bg-gray rounded-md transition-transform transtion-default border border-solid border-violet/50;
+
+  @include hover {
+    @apply scale-110;
+  }
+
+  &::before {
+    @include abs-center;
+
+    content: '...';
+    @apply w-2.5 h-2.5 flex justify-center items-center text-violet text-xl rotate-90;
+  }
+}

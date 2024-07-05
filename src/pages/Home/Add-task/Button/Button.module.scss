@@ -1,0 +1,32 @@
+@import './../../../../assets/styles/styles';
+
+.button {
+	@apply relative z-10 bg-black rounded-3xl py-2 px-4 w-5/6 flex items-center shadow-lg text-white transition-width transtion-default animate-anim-scale;
+
+	@include hover {
+		@apply w-full;
+	}
+
+	&.visible {
+		@apply w-full;
+
+		& > .icon {
+			@apply -rotate-45;
+		}
+	}
+
+	& > .icon {
+		@apply transition-transform transtion-default;
+	}
+
+	& > .label {
+		@apply ml-2.5 mr-auto text-sm;
+	}
+
+	& > kbd {
+		@include square(28px);
+		@include flex-center;
+
+		@apply ml-1 bg-gray-alt/50 rounded-full;
+	}
+}

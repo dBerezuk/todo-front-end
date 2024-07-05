@@ -1,0 +1,34 @@
+@import './../../../../../../assets/styles/styles';
+
+.item {
+	& + & {
+		@apply border-t border-solid border-violet/50;
+	}
+
+	&:first-child > button::before {
+		@apply rounded-t-md;
+	}
+
+	&:last-child > button::before {
+		@apply rounded-b-md;
+	}
+
+	& > button {
+		@apply relative w-full text-sm py-3 px-2 text-center transition-colors transtion-default;
+
+		& > span {
+			@apply relative z-10 text-current;
+		}
+
+		&::before {
+			content: '';
+			@apply absolute inset-0.5 bg-violet/30 scale-75 opacity-0 transition-all transtion-default;
+		}
+
+		@include hover {
+			&::before {
+				@apply scale-100 opacity-100;
+			}
+		}
+	}
+}

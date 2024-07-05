@@ -1,0 +1,43 @@
+@import './../../../assets/styles/styles.scss';
+
+.checkbox {
+  @include square(44px);
+
+  @apply inline-block;
+}
+
+.input {
+  @apply visually-hidden;
+
+  &:checked + .emulator {
+    @apply border-violet border-dashed;
+  }
+
+  &:focus-visible + .emulator {
+    @apply outline-default;
+  }
+
+  &:not(:checked) + .emulator::before {
+    @apply opacity-0;
+  }
+}
+
+.emulator {
+  @apply w-full h-full relative block border border-solid border-gray-alt rounded-md;
+
+  @include hover {
+    @apply border-violet;
+  }
+
+  &::before {
+    @include abs-center(true);
+    @include square(80%);
+
+    content: '';
+    @apply bg-violet rounded-md transition-opacity transtion-default;
+  }
+}
+
+.label {
+  @apply visually-hidden;
+}

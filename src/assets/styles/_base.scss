@@ -1,0 +1,50 @@
+@layer base {
+  body {
+    @apply bg-gray text-black font-grotesk text-base font-normal;
+  }
+
+  img {
+    @apply mx-auto inline-block;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    @apply font-medium;
+  }
+
+  input,
+  textarea,
+  select,
+  input::placeholder,
+  textarea::placeholder,
+  select::placeholder {
+    font: inherit;
+  }
+
+  input,
+  textarea,
+  select {
+    @include hover {
+      @apply border-violet;
+    }
+
+    &:focus {
+      @apply outline-none border-violet bg-violet/10;
+    }
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    @apply text-gray-alt;
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+}

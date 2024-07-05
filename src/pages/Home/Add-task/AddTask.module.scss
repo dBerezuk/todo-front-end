@@ -1,0 +1,5 @@
+@import './../../../assets/styles/styles';
+
+.box {
+	@apply container fixed bottom-5 left-1/2 -translate-x-1/2 z-10 max-w-96 w-full flex items-center flex-col;
+}

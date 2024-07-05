@@ -1,0 +1,13 @@
+@import '../../../../../assets/styles/styles';
+
+.button {
+  @apply absolute top-0 right-0 text-yellow h-full aspect-square flex justify-center items-center transition-all transtion-default;
+
+  @include hover {
+    @apply text-gray-alt scale-105;
+  }
+
+  &.active {
+    @apply text-gray-alt scale-105;
+  }
+}

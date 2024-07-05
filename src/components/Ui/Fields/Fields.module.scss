@@ -1,0 +1,17 @@
+.field {
+	& > label {
+		@apply visually-hidden;
+	}
+}
+
+.box {
+	@apply relative;
+}
+
+.input {
+	@apply input-default transition-colors transtion-default;
+
+	&.error {
+		@apply border-red;
+	}
+}
