@@ -1,21 +1,21 @@
 @import './../../../assets/styles/styles.scss';
 
 .task {
-  @apply bg-white rounded-md px-2.5 min-h-16 flex items-center gap-x-3 shadow transition-colors transtion-default animate-anim-scale;
+	@apply bg-white rounded-md px-2.5 min-h-16 flex items-center gap-x-3 shadow transition-colors transtion-default animate-anim-scale;
 
-  &.completed {
-    @apply bg-violet/5;
+	&.completed {
+		@apply bg-violet/5;
 
-    & > strong {
-      @apply line-through text-violet;
-    }
-  }
+		& > strong {
+			@apply line-through text-violet;
+		}
+	}
 
-  @include hover {
-    @apply bg-violet/5;
-  }
+	@include hover {
+		@apply bg-violet/5;
+	}
 
-  & > strong {
-    @apply mr-auto;
-  }
+	& > strong {
+		@apply mr-auto;
+	}
 }

@@ -1,10 +1,10 @@
-import {JSX} from 'react';
+import { JSX } from 'react';
 
 import Home from '@/pages/Home/Home.tsx';
 
 interface IRoutes {
-	path: string,
-	element: JSX.Element | null
+	path: string;
+	element: JSX.Element | null;
 }
 
 const routes: IRoutes[] = [
