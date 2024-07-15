@@ -12,12 +12,12 @@ function Footer({ isType }: IProps) {
 			<p>
 				{isType ? (
 					<>
-						Уже есть аккаунт ?
+						Already have an account ?
 						<Link path={routeUrls.LOGIN} children="Login" />
 					</>
 				) : (
 					<>
-						Ещё нет аккаунта ?
+						No account yet ?
 						<Link path={routeUrls.REGISTRATION} children="Register" />
 					</>
 				)}

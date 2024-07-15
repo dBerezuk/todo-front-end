@@ -13,6 +13,8 @@ function Tasks(): JSX.Element | null {
 		<ul className={styles.list}>
 			{tasksLoading ? (
 				<Loading className="text-violet" size={48} />
+			) : !tasks.length ? (
+				<div className="text-center animate-anim-scale">No tasks</div>
 			) : (
 				tasks.map(({ _id, ...rest }) => (
 					<li key={_id}>
