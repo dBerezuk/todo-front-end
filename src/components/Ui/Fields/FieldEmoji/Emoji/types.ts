@@ -1,11 +1,10 @@
-import { fieldName } from '@/types/fields.types';
 import { TTaskForm } from '@/types/task.types';
 import { MutableRefObject } from 'react';
 import { UseFormSetValue } from 'react-hook-form';
 
 export interface IEmojiProps {
 	isOpenEmoji: boolean;
-	fieldName: fieldName;
+	fieldName: string;
 	setValue: UseFormSetValue<TTaskForm>;
 	fieldRef: MutableRefObject<HTMLInputElement | null>;
 }

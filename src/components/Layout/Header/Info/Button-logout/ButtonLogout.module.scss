@@ -1,0 +1,9 @@
+@import './../../../../../assets/styles/styles';
+
+.button {
+	@apply text-blue transition-colors transtion-default p-2.5;
+
+	@include hover {
+		@apply hover:text-violet;
+	}
+}

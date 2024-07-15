@@ -1,12 +1,9 @@
-import useAppDispatch from '@/hooks/redux/useAppDispatch';
+import useActions from '@/hooks/redux/useActions';
+import { TTaskEdit } from '@/types/task.types';
 
-import { changeCompletedTask } from '@/store/tasks/tasks.slice';
-
-import { TTaskId } from '@/types/task.types';
-
-function useTask({ id }: TTaskId) {
-	const dispatch = useAppDispatch();
-	const onCompleted = () => dispatch(changeCompletedTask({ id }));
+function useTask({ _id, isCompleted }: TTaskEdit) {
+	const { editTask } = useActions();
+	const onCompleted = () => editTask({ _id, isCompleted: !isCompleted });
 
 	return { onCompleted };
 }

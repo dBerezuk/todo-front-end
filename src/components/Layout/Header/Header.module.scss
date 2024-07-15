@@ -1,11 +1,11 @@
 @import './../../../assets/styles/styles.scss';
 
 .header {
-	@apply pt-5 mb-10 flex flex-col mobile:flex-row gap-5;
+	@apply pt-5 mb-10 flex flex-col mobile:flex-row gap-5 items-center;
 }
 
 .body {
-	@apply flex flex-col gap-y-1 pt-5 mobile:pt-0 mobile:pl-5 border-t mobile:border-t-0 mobile:border-l border-solid border-violet;
+	@apply hidden flex-col pt-0 pl-5 border-t-0 border-l border-solid border-violet md:flex;
 
 	& > b {
 		@include fluid-text(20, 28);

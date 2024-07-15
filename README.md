@@ -12,7 +12,9 @@ Make sure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.co
 
 ## Setup Instructions
 
-### Step 1: Install Dependencies
+### Step 1: back-end launch
+
+### Step 2: Install Dependencies
 
 To install the necessary dependencies, run one of the following commands in your terminal:
 
@@ -28,7 +30,7 @@ Using Yarn:
 yarn
 ```
 
-### Step 2: Start the Development Server
+### Step 3: Start the Development Server
 
 To start the development server, run one of the following commands:
 
@@ -44,6 +46,6 @@ Using Yarn:
 yarn dev
 ```
 
-### Step 3: Open the Application
+### Step 4: Open the Application
 
 Once the server is running, open your browser and navigate to: [http://localhost:5173](http://localhost:5173)

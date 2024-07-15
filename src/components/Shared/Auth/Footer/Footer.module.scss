@@ -1,0 +1,5 @@
+.footer {
+	& > p {
+		@apply flex justify-center gap-x-1 text-sm text-center;
+	}
+}

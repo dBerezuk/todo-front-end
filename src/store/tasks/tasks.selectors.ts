@@ -1,14 +1,17 @@
 import type { RootReducer } from '@/store/rootReducer.ts';
-import { ITask, TaskFields } from '@/types/task.types.ts';
-import { createSelector } from '@reduxjs/toolkit';
+import { ITask } from '@/types/task.types.ts';
 
-export const getTasks = (state: RootReducer) => state.tasks;
+export const getTasks = (state: RootReducer) => state.tasks.tasks;
+
+export const getTasksLoading = (state: RootReducer) =>
+	state.tasks.isTasksLoading;
+
+export const formTaskLoading = (state: RootReducer) =>
+	state.tasks.isFormTaskLoading;
+
+export const getTasksErrors = (state: RootReducer) => state.tasks.errors;
 
 export const findTask = (
 	state: RootReducer,
-	id: number | null
-): ITask | undefined => state.tasks.find(_ => _[TaskFields.ID] === id);
-
-export const getTasksIds = createSelector([getTasks], tasks =>
-	tasks.map(task => task[TaskFields.ID])
-);
+	id: string | null
+): ITask | undefined => state.tasks.tasks.find(task => task._id === id);

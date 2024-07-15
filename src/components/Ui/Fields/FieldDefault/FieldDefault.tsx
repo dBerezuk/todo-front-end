@@ -3,6 +3,7 @@ import { forwardRef } from 'react';
 
 import { TFieldDefault } from '@/types/fields.types.ts';
 
+import ErrorText from '@/Ui/Errors/Error-text/ErrorText';
 import styles from './../Fields.module.scss';
 
 const FieldDefault = forwardRef<HTMLInputElement, TFieldDefault>(
@@ -19,7 +20,7 @@ const FieldDefault = forwardRef<HTMLInputElement, TFieldDefault>(
 						{...rest}
 					/>
 				</div>
-				{/* {error && <span>ошибка</span>} */}
+				<ErrorText error={error} />
 			</div>
 		);
 	}

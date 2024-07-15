@@ -3,8 +3,6 @@ import Checkbox from '@/Ui/Checkbox/Checkbox.tsx';
 import FieldEmoji from '@/Ui/Fields/FieldEmoji/FieldEmoji.tsx';
 import useForm from './useForm';
 
-import { TaskFields } from '@/types/task.types';
-
 import styles from './Form.module.scss';
 
 function Form(): JSX.Element {
@@ -12,18 +10,14 @@ function Form(): JSX.Element {
 
 	return (
 		<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-			<Checkbox
-				label="Checked"
-				value="1"
-				{...register(TaskFields.IS_COMPLETED)}
-			/>
+			<Checkbox label="Checked" value="true" {...register('isCompleted')} />
 			<FieldEmoji
 				label="Task name"
-				fieldName={TaskFields.NAME}
+				fieldName="text"
 				placeholder="Enter the task name"
 				setValue={setValue}
-				error={errors[TaskFields.NAME]}
-				{...register(TaskFields.NAME, {
+				error={errors.text}
+				{...register('text', {
 					required: true
 				})}
 			/>

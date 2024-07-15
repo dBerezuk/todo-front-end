@@ -1,0 +1,10 @@
+@import './../../../../../assets/styles/styles';
+
+.email {
+	@apply flex gap-x-0.5 animate-anim-scale;
+}
+.char {
+	@include square(24px);
+
+	@apply flex justify-center items-center bg-violet/20 rounded-full;
+}

@@ -5,7 +5,7 @@ import styles from './AddTask.module.scss';
 import useAddTask from './useAddTask.ts';
 
 function AddTask(): JSX.Element {
-	const { ref, isShow, onTogglePopup, editTaskId } = useAddTask();
+	const { ref, isShow, onTogglePopup, editTaskId, taskLoading } = useAddTask();
 
 	return (
 		<div className={styles.box} ref={ref}>
@@ -14,6 +14,7 @@ function AddTask(): JSX.Element {
 				label={`${editTaskId ? 'Update' : 'Create new'} task`}
 				onClick={onTogglePopup}
 				isVisible={isShow}
+				isLoading={taskLoading}
 			/>
 		</div>
 	);

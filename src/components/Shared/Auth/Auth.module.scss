@@ -1,0 +1,21 @@
+.auth {
+	& > h2 {
+		@apply text-center;
+	}
+}
+
+.form {
+	@apply max-w-80 mx-auto rounded-md py-4 px-2.5 bg-white shadow;
+
+	& > .body {
+		@apply mb-2.5;
+
+		& > h2 {
+			@apply text-2xl text-center mb-4;
+		}
+
+		& > div {
+			@apply flex flex-col gap-2.5 mb-3;
+		}
+	}
+}

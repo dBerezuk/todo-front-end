@@ -5,24 +5,24 @@ import useTask from './useTask.ts';
 import Checkbox from '@/Ui/Checkbox/Checkbox';
 import Actions from './Actions/Actions.tsx';
 
-import { ITask, TaskFields } from '@/types/task.types.ts';
+import { ITask } from '@/types/task.types.ts';
 
 import styles from './Task.module.scss';
 
-function Task({ id, name, isCompleted }: ITask): JSX.Element | null {
-	const { onCompleted } = useTask({ id });
+function Task({ _id, text, isCompleted }: ITask): JSX.Element | null {
+	const { onCompleted } = useTask({ _id, isCompleted });
 
 	return (
 		<article className={cn(styles.task, { [styles.completed]: isCompleted })}>
 			<Checkbox
 				label="Checked"
-				name={TaskFields.IS_COMPLETED}
+				name="isCompleted"
 				checked={isCompleted}
 				value="1"
 				onChange={onCompleted}
 			/>
-			<strong>{name}</strong>
-			<Actions id={id} />
+			<strong>{text}</strong>
+			<Actions _id={_id} />
 		</article>
 	);
 }

@@ -11,8 +11,8 @@ interface IProps extends TTaskId {
 	toggleList: () => void;
 }
 
-function List({ id, isVisible, toggleList }: IProps): JSX.Element | null {
-	const { onEdit, onDelete } = useList(id, toggleList);
+function List({ _id, isVisible, toggleList }: IProps): JSX.Element | null {
+	const { onEdit, onDelete } = useList(_id, toggleList);
 
 	return (
 		<div

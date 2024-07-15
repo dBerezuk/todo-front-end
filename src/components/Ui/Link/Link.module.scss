@@ -1,0 +1,9 @@
+@import '../../../assets/styles/styles';
+
+.link {
+	@apply transition-colors transtion-default;
+
+	@include hover {
+		@apply hover:text-violet;
+	}
+}

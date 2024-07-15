@@ -1,0 +1,9 @@
+@import './../../../../assets/styles/styles.scss';
+
+.button {
+	@apply bg-black rounded-md w-full h-11 px-2.5 text-white text-center transition-colors transtion-default;
+
+	@include hover {
+		@apply bg-violet;
+	}
+}

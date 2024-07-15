@@ -2,12 +2,10 @@ import { InputHTMLAttributes } from 'react';
 import { FieldError, UseFormSetValue } from 'react-hook-form';
 import { TTaskForm } from './task.types';
 
-export type fieldName = keyof TTaskForm;
-
 export interface IFieldEmojiProps
 	extends InputHTMLAttributes<HTMLInputElement> {
 	label: string;
-	fieldName: fieldName;
+	fieldName: string;
 	setValue: UseFormSetValue<TTaskForm>;
 	error?: FieldError;
 }

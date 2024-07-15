@@ -1,20 +1,17 @@
-import useAppDispatch from '@/hooks/redux/useAppDispatch';
+import useActions from '@/hooks/redux/useActions';
 import useOpenFormTaskContext from '@/pages/Home/useOpenFormTaskContext';
-import { deleteTask } from '@/store/tasks/tasks.slice';
 
-function useList(id: number, toggleList: () => void) {
-	const dispatch = useAppDispatch();
+function useList(_id: string, toggleList: () => void) {
+	const { deleteTask } = useActions();
 	const { setEditTaskId, setIsShow } = useOpenFormTaskContext();
 
 	const onEdit = () => {
-		setEditTaskId(id);
+		setEditTaskId(_id);
 		setIsShow(true);
 		toggleList();
 	};
 
-	const onDelete = () => {
-		dispatch(deleteTask({ id }));
-	};
+	const onDelete = () => deleteTask({ _id });
 
 	return { onEdit, onDelete };
 }

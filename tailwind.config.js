@@ -31,25 +31,25 @@ export default {
 			center: true,
 			padding: '1rem'
 		},
-		keyframes: {
-			'anim-scale': {
-				'0%': {
-					opacity: 0,
-					scale: '0.9'
-				},
-				'100%': {
-					opacity: 1,
-					scale: '1'
-				}
-			}
-		},
-		animation: {
-			'anim-scale': 'anim-scale .7s'
-		},
 		extend: {
 			transitionProperty: {
 				width: 'width',
 				'max-w': 'max-width'
+			},
+			keyframes: {
+				'anim-scale': {
+					'0%': {
+						opacity: 0,
+						scale: '0.9'
+					},
+					'100%': {
+						opacity: 1,
+						scale: '1'
+					}
+				}
+			},
+			animation: {
+				'anim-scale': 'anim-scale .7s'
 			},
 			screens: {
 				mobile: '390px'

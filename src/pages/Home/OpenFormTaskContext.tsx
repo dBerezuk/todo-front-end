@@ -7,7 +7,7 @@ export const OpenEditTaskContext = createContext<IOpenFormTaskContext>(
 );
 
 function OpenEditTaskProvider({ children }: PropsWithChildren): JSX.Element {
-	const [editTaskId, setEditTaskId] = useState<number | null>(null);
+	const [editTaskId, setEditTaskId] = useState<string | null>(null);
 	const { ref, isShow, setIsShow } = useCombineKeyOutside(false, 'KeyZ');
 
 	useEffect(() => {

@@ -1,29 +1,28 @@
 import { useEffect } from 'react';
 import { SubmitHandler, useForm as useHookForm } from 'react-hook-form';
 
-import useAppDispatch from '@/hooks/redux/useAppDispatch';
 import useAppSelector from '@/hooks/redux/useAppSelector';
 import useOpenFormTaskContext from '@/pages/Home/useOpenFormTaskContext';
 
-import { findTask, getTasksIds } from '@/store/tasks/tasks.selectors';
-import { addTask, updateTask } from '@/store/tasks/tasks.slice';
+import { findTask, getTasksErrors } from '@/store/tasks/tasks.selectors';
 
-import newId from '@/utils/newId';
-
-import { ITask, TTaskForm, TaskFields } from '@/types/task.types';
+import useActions from '@/hooks/redux/useActions';
+import { TTaskForm } from '@/types/task.types';
+import viewErrorForm from '@/utils/view-error-form';
 
 function useForm() {
 	const { editTaskId, isShow } = useOpenFormTaskContext();
 
-	const tasksIds: number[] = useAppSelector(getTasksIds);
 	const task = useAppSelector(state => findTask(state, editTaskId));
+	const error = useAppSelector(getTasksErrors);
 
-	const dispatch = useAppDispatch();
+	const { createTask, editTask } = useActions();
 
 	const {
 		register,
 		handleSubmit,
 		setValue,
+		setError,
 		reset,
 		formState: { errors }
 	} = useHookForm<TTaskForm>({
@@ -31,21 +30,20 @@ function useForm() {
 	});
 
 	useEffect(() => {
-		setValue(TaskFields.NAME, task ? task[TaskFields.NAME] : '');
-		setValue(
-			TaskFields.IS_COMPLETED,
-			task ? task[TaskFields.IS_COMPLETED] : false
-		);
-	}, [isShow]);
+		setValue('text', task ? task.text : '');
+		setValue('isCompleted', task ? task.isCompleted : false);
+	}, [isShow, setValue]);
+
+	useEffect(() => {
+		error?.formError && viewErrorForm(error, setError);
+	}, [error, setError]);
 
 	const onSubmit: SubmitHandler<TTaskForm> = data => {
-		const taskData: ITask = {
-			[TaskFields.ID]: editTaskId ? editTaskId : newId(tasksIds),
-			...data,
-			[TaskFields.IS_COMPLETED]: !!data[TaskFields.IS_COMPLETED]
-		};
-
-		dispatch(editTaskId ? updateTask(taskData) : addTask(taskData));
+		if (editTaskId) {
+			editTask({ _id: editTaskId, ...data });
+		} else {
+			createTask(data);
+		}
 
 		!editTaskId && reset();
 	};
