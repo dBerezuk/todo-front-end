@@ -14,6 +14,8 @@ Make sure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.co
 
 ### Step 1: back-end launch
 
+Go to this [repository](https://github.com/dBerezuk/todo-back-end) and download, configure and run the backend application
+
 ### Step 2: Install Dependencies
 
 To install the necessary dependencies, run one of the following commands in your terminal:
